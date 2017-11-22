@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block titulo %}
+- Noticias  
+{% endblock titulo %}
+
+{% block main %}
+<link rel="stylesheet" media="screen" href="../static/css/media-noticia.css">
+<link rel="stylesheet" type="text/css" href="../static/css/estilo-noticia.css">
+<main>
+
+        <div class="titulo">
+                <h1>Notícias</h1>
+        </div>
+    
+        <div class="desc-noticias">
+                <img src="../static/img/1kk.png" width="350" height="250" alt=" 1 milhao de inscritos" >
+                <p>Primeiro aluno da Facultube a bater a marca de 1 milhão de escritos!</br>
+                Lucas, com seus 17 anos, nascido na capital Paulista consegue chega a marca de 1kk de inscritos em seu <a href="https://www.youtube.com"> canal no YouTube</a> nessa sexta-feira.</p>
+        </div>
+
+        <div class="titulo">
+            <h2>Facultube com você!</h2>
+        </div>
+
+        <div class="desc-noticias">
+            <img src="../static/img/youtube_space.jpg" width="350" height="250" alt="youtube space">
+                <p>A Facultube ira realizar um evento de divulgação dos melhores alunos com direito a palestra com dicas, e ainda com a participação de fenômenos já conhecidos pelas redes sociais. Eai vai fica de fora dessa?</p>
+        </div>
+    </main>
+
+    <aside>
+        <div class="titulo">
+            <h3>Venha nos conhecer</h3>
+        </div>
+        <div class="mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.1546171130713!2d-46.648665285022794!3d-23.526940684699916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce586c2f52dac9%3A0xee388d13acf1a940!2sYouTube+Space+S%C3%A3o+Paulo!5e0!3m2!1spt-BR!2sbr!4v1508443551472" width="100%" height="350" frameborder="0" 		style="border:0" allowfullscreen></iframe>
+        </div>
+    </aside>
+{% endblock main %}

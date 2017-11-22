@@ -1,0 +1,23 @@
+main {
+    margin-left:10em;
+    margin-right: 3em;
+}
+
+.desc-noticias {
+    display: flex;
+}
+
+.desc-noticias img, p {
+    margin-left: 2em;
+    font-family: 'Arial';
+}
+
+.titulo h2 {
+    color: #0000CD;
+    font-size: 2em;
+}
+
+aside h3 {
+    color: #0000CD;
+    font-size: 2em;
+}

@@ -1,0 +1,13 @@
+main {
+    margin-left: 10em;
+    margin-right: 10em;
+}
+
+main section h2 {
+    margin-left:4em;
+    color: #0000CD;
+}
+
+section p {
+    font-family: 'Arial';
+}

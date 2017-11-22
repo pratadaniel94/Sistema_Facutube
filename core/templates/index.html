@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block titulo %}
+- Home Page  
+{% endblock  %}
+
+{% block main %}
+<!-- <link rel="stylesheet" type="text/css" href="../static/css/estilo.css"> -->
+    <main>
+        <div class="titulo">
+            <h1>Bem-vindo a Facutube</h1>
+                    <p class="sub-titulo">Formando os melhores Youtubers do Brasil</p>
+        </div>
+            <div class="sobre">
+                <img src="/static/img/foto-faculdade.jpg" width="450px" height="300" alt="Prédio da Faculdade Avanço"/>
+                    <p>A Faculdade Avanço foi fundada em 2010 por Henrique Sebastião Dias. Atualmente com mais de 2 mil alunos matriculados em diversos cursos.</p>
+            </div>
+            <div class="sobre">
+                <img src="/static/img/propaganda.jpg" width="450px" height="300" alt="alunos da faculdade avanço"/>
+                    <p>A melhor Faculdade particular pelo 2º ano consecutivo. 1º lugar no RUF</p>
+            </div>
+            <div class="sobre">
+                <img src="/static/img/youtubers.jpg" width="450" height="300" alt="Avanço de ex alunos"/>
+                    <p>Aprenda as melhores técnicas para conseguir inscriçõess no seu canal.</p>
+            </div>
+        </div>
+    </main>
+        
+        
+    <section class="comentarios">
+        <h2>Comentários</h2>
+        
+            <div class="comentario">
+                <img src="/static/img/foto-perfil.jpg" width="50px" alt="comentario-whindersson-nunes"/>
+                    <p>Estudar na Avanço foi essencial para o meu sucesso como Youtuber.</p>
+            </div>
+
+            <div class="comentario">
+                <img src="/static/img/foto-perfil.jpg" width="50px" alt="comentario-felipe-neto"/>
+                <p>Uma excelente faculdade, ótima infraestrutura.</p>
+            </div>
+
+            <div class="comentario">
+                <img src="/static/img/foto-perfil.jpg" width="50px" alt="comentario-dani-russo"/>
+                    <p>Ótima infraestrutura. No entanto, a localização é um ponto negativo.</p>
+            </div>
+    </section>
+
+
+{% endblock main %}
+
+

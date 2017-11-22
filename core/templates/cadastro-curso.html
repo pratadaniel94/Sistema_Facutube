@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block titulo %}
+- Contato
+{% endblock titulo %}
+
+{% block main %}
+<link rel="stylesheet" href="../static/css/formulario.css">
+<main>
+        <div class="titulo">
+            <h1>Cadastro de cursos</h1>
+        </div>
+         
+        <div class="form">
+            <form method="POST" action="" >
+                    {% csrf_token %}
+                    {% for input in form %}
+                       <div> 
+                           {{ input.label_tag }}
+                           {{ input }}
+                           {{ input.erros }}
+                       </div>
+                    {% endfor %}
+                    <button type="submit">Enviar</button>
+                    <button type="submit">Enviar</button>
+                    <!-- <input type="reset" value="limpar"> -->
+            </form>
+        </div>
+</main>
+{% endblock main %}
+
+

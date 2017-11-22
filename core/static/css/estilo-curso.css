@@ -1,0 +1,22 @@
+/* main {
+    margin-right: 20em;
+    margin-left: 20em;
+} */
+
+.curso {
+    display: flex;
+    justify-content: center;
+}
+
+.curso img {
+    padding: 2.5em;
+}
+
+section a {
+    text-decoration: none;
+    color: rgb(44, 31, 158)
+}
+
+section img {
+    border-radius: 20px;
+}

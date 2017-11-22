@@ -1,0 +1,49 @@
+@media(max-width:870px) {
+	.titulo {
+		text-align: center;
+		margin-left: 100px;	 
+	}
+	.sobre {
+		flex-direction: column;
+	}
+
+	.sobre p {
+		padding-top: 1em;
+	}
+}
+@media(max-width:650px) {
+	label[for="bt_menu"] {
+	display: block;
+	}
+
+	#bt_menu:checked ~ .menu {
+		margin-left: 0;
+	}
+	.menu {
+		margin-top: 5px;
+		margin-left: -100%;
+		transition: all .4s;
+	}
+	.menu ul li {
+		width: 100%;
+		float: none;
+	}  
+	.menu ul ul {
+		position: static;
+		overflow: hidden;
+		max-height: 0;
+		transition: all .4s;
+	} 
+	.menu ul li:hover ul {
+		height: auto;
+		max-height: 200px;
+	}
+	main .sobre {
+		flex-direction: column;
+		align-items: center;
+		font-size: 'Arial';
+	}
+	
+	
+}
+

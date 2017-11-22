@@ -1,0 +1,251 @@
+create table Disciplina (id serial  not null,
+nome varchar (240)not null,
+carga_horaria smallint not null,
+teoria decimal(3),
+pratica decimal(3),
+ementa text,
+competencia text,
+habilidades text,
+conteudo text,
+bibliografia_basica text,
+bibliografia_complementar text,
+constraint disciplina_pk primary key (id),
+constraint disciplina_uq  unique (nome));
+
+
+create table Curso (id serial  not null,
+sigla varchar (5) not null,
+nome varchar(50)not null,
+constraint curso_pk primary key (id),
+constraint curso_sigla_uq unique(sigla),
+constraint curso_nome_uq unique(nome));
+
+
+create table GradeCurricular (id serial  not null,
+id_curso int not null,
+sigla_curso varchar (5) not null,
+ano smallint not null,
+semestre char(1)not null,
+constraint gradecurricular_pk primary key (id),
+constraint gradecurricular_fk foreign key (id_curso)
+references Curso (id),
+constraint gradecurricular_uq unique (sigla_curso,ano,semestre));
+
+
+create table Periodo (id serial  not null,
+id_grade int not null,
+sigla_curso varchar (5) not null,
+ano_grade smallint not null,
+semestre_grade char(1)not null,
+numero smallint not null,
+constraint periodo_pk primary key (id),
+constraint periodo_fk foreign key (id_grade)
+references GradeCurricular (id),
+constraint Periodo_numero_uq unique (numero),
+constraint Periodo_cv_uq unique (sigla_curso,
+ano_grade,
+semestre_grade));
+
+
+
+create table PeriodoDisciplina (id serial  not null,
+id_Periodo int not null,
+id_Disciplina int not null,
+sigla_curso varchar(5),
+ano_grade smallint not null,
+semestre_grade char (1),
+numero_periodo smallint not null,
+nome_disciplina varchar(240)not null,
+constraint PeriodoDisciplina_pk  primary key (id),
+constraint PeriodoDisciplina_periodo_fk foreign key (id_periodo)
+references Periodo (id),
+constraint PeriodoDisciplina_disciplina_fk foreign key (id_Disciplina)
+references Disciplina (id),
+constraint PeriodoDisciplina_uq  unique (sigla_curso,
+ano_grade,
+semestre_grade,
+numero_periodo,
+nome_disciplina));
+
+
+create table Aluno (id serial  not null,
+id_curso int not null,
+ra int not null,
+nome varchar(120) not null,
+email varchar(80) not null,
+celular char(11)not null,
+sigla_curso varchar(5) not null, /* perguntar para o prefessor � (char(2)) sendo que em cursos � um (varchar (5))*/
+constraint aluno_pk  primary key(id),
+constraint aluno_uq unique (ra),
+constraint aluno_fk   foreign key (id_curso) 
+references Curso (id));
+
+
+create table DisciplinaOfertada (id serial  not null,
+id_disciplina int not null,
+nome_disciplina varchar(240) not null,
+ano smallint not null,
+semestre char (1) not null ,
+constraint id_disciplina_ofertada_pk primary key(id),
+constraint nome_disciplina_DisciplinaOfertada_fk foreign key (id_disciplina)
+references Disciplina (id),
+constraint nome_disciplina_DisciplinaOfertada_uq unique (nome_disciplina,
+ano,
+semestre));
+
+
+create table Professor (id serial  not null,
+ra int not null,
+apelido varchar(30) not null,
+nome varchar (120) not null,
+email varchar (80) not null,
+celular char (11)not null,
+constraint Professor_pk  primary key (id),
+constraint Professor_ra_uq unique (ra),
+constraint Professor_ap_uq unique (apelido));
+
+ 
+create table Turma (id serial  not null,
+id_DisciplinaOfertada int not null,
+id_Professor int not null,
+nome_disciplina varchar(240),
+ano_ofertado smallint not null,
+semestre_ofertado char(1)not null,
+id_turma char (1) not null,
+turno varchar(15)not null,
+ra_professor int not null,
+constraint Turma_id_uq primary key (id),
+constraint Turma_DisciplinaOfertada_fk foreign key (id_DisciplinaOfertada)
+references DisciplinaOfertada (id),
+constraint Turma_Professor_fk foreign key (id_Professor)
+references Professor (id),
+constraint Turma_uq unique (nome_disciplina,
+ano_ofertado,
+semestre_ofertado));
+
+
+create table CursoTurma (id serial  not null,
+id_curso int not null,
+id_da_turma int not null,
+sigla_curso varchar(5)not null,
+nome_disciplina varchar(240),
+ano_ofertado smallint not null,
+semestre_ofertado char (1)not null,
+id_turma char(1) not null,
+constraint CursoTurma_pk primary key (id),
+constraint CursoTurma_curso_fk foreign key (id_curso)
+references Curso (id),
+constraint CursoTurma_Professor_fk foreign key (id_da_turma)
+references Turma (id),
+constraint CursoTurma_uq unique (sigla_curso,nome_disciplina,
+ano_ofertado,
+semestre_ofertado,
+id_turma));
+
+
+create table Matricula (id serial  not null,
+id_aluno int not null,
+id_da_turma int not null,
+ra_aluno int not null,
+nome_disciplina varchar (240)not null,
+ano_ofertado smallint not null,
+semestre_ofertado char (1),
+id_turma char(1),
+constraint id_matricula_pk primary key (id),
+constraint Matricula_Aluno_fk foreign key (id_aluno)
+references Aluno (id),
+constraint Matricula_turma_fk foreign key (id_da_turma)
+references Turma (id),
+constraint ra_aluno_Matricula_uq unique (ra_aluno,
+nome_disciplina,
+ano_ofertado,
+semestre_ofertado,
+id_turma));
+
+
+create table Questao (id serial  not null,
+id_da_turma int not null,
+nome_disciplina varchar(240)not null,
+ano_ofertado smallint not null,
+semestre_ofertado char(1)not null,
+id_turma char(1)not null,
+numero int not null,
+data_limite_entrega date not null,
+descricao text,
+data_questao date,
+constraint Questao_pk primary key(id),
+constraint Questao_fk foreign key (id_da_turma)
+references Turma (id),
+constraint Questao_numero_uq unique (numero),
+constraint Questao_uq unique (nome_disciplina,
+ano_ofertado,
+semestre_ofertado,
+id_turma));
+
+create table ArquivosQuestao (id serial  not null,
+id_Questao int not null,
+nome_disciplina varchar(240)not null,
+ano_ofertado smallint not null,
+semestre_ofertado char(1)not null,
+id_turma char(1)not null,
+numero_questao int not null,
+arquivo varchar (500)not null,
+constraint ArquivoQuestao_pk primary key(id),
+constraint ArquivosQuestao_fk foreign key (id_Questao)
+references  Questao (id),
+constraint ArquivosQuestao_arquivo_uq unique (arquivo),
+constraint ArquivosQuestao_uq unique (nome_disciplina,
+ano_ofertado,
+semestre_ofertado,
+id_turma,
+numero_questao));
+
+
+create table Resposta (id serial  not null,
+id_Questao int not null,
+id_aluno int not null,
+nome_disciplina varchar(240)not null,
+ano_ofertado smallint not null,
+semestre_ofertado char(1)not null,
+id_turma char(1)not null,
+numero_questao int not null,
+ra_aluno int not null,
+data_avaciacao date not null,
+nota decimal (4,2),
+avalicao text not null,
+descricao text not null,
+data_de_envio date,
+constraint Resposta_pk primary key(id),
+constraint Resposta_Questao_fk foreign key (id_questao)
+references Questao (id),
+constraint Resposta_aluno_fk foreign key (id_aluno)
+references Aluno (id),
+constraint Resposta_ra_uq unique (ra_aluno),
+constraint Resposta_uq unique (nome_disciplina,
+ano_ofertado,
+semestre_ofertado,
+id_turma,
+numero_questao));
+
+
+create table ArquivoResposta(id  serial not null,
+id_resposta int not null,
+nome_disciplina varchar(240)not null,
+ano_ofertado smallint not null,
+semestre_ofertado char(1)not null,
+id_turma char(1)not null,
+numero_questao int not null,
+ra_aluno int not null,
+arquivo varchar(500)not null,
+constraint ArquivoResposta_pk primary key(id),
+constraint ArquivoResposta_fk foreign key(id_resposta)
+references  Resposta( id),
+constraint ArquivoResposta_arquivo_uq unique (arquivo),
+constraint ArquivoResposta_uq unique(nome_disciplina,
+ano_ofertado,
+semestre_ofertado,
+id_turma,
+numero_questao,
+ra_aluno));
+
+

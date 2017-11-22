@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block titulo %}
+- Home Page  
+{% endblock titulo %}
+
+{% block main %}
+<link rel="stylesheet" type="text/css" href="/static/css/formulario.css">
+    <div class="titulo">
+        <h1>Login</h1>
+    </div>
+
+
+    <section>
+        <div class="form">
+            <form action="form" method="POST">
+                {% csrf_token %}
+                {{form.errors}}
+                {{ form.as_p }}
+                <input type='submit' value='entrar' />
+                
+            <p>Esqueceu seu senha? <a href="esqueci-senha.html">Clique aqui seu burro(a)!</a></p>
+        </div>
+    </section>
+{% endblock main %}

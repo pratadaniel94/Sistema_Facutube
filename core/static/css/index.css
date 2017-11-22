@@ -1,0 +1,42 @@
+.sobre {
+	display: flex;
+	justify-content: center;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.sobre p {
+	width: 400px;
+	font-family: 'Arial';
+	color: #3E3C3C;
+	padding-left: 5em;
+	padding-top: 3em;
+}
+
+.sobre img {
+	border-radius: 30px;
+}
+
+.comentarios h2 {
+	display: flex;
+	justify-content: center;
+	font-size: 30px;
+	color: #0000CD;
+	padding: 1em;
+}
+.comentario {
+	display:flex;
+	flex-direction: column;
+	margin-left: 3em;
+	padding: 1em;
+}
+
+.comentarios img {
+	padding: 1em;
+	border-radius: 40px;
+}
+
+.comentarios p {
+	margin-left: 3em;
+	font-family: 'Arial';
+}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block titulo %}
+- Cursos 
+{% endblock titulo %}
+
+{% block main %}
+<link rel="stylesheet" type="text/css" href="../static/css/estilo-curso.css">
+<main>
+		<div class="titulo">
+			<h1>Cursos</h1>
+		</div>	
+		<section class="cursos-md">
+			<div class="curso">
+				<!-- <h2>Graduação em Marketing</h2> -->
+				<a href="marketing/">
+					<img src="/static/img/marketing.jpg" width="300" height="200" alt="Graduação em Marketing">
+				</a>
+
+				<!-- <h2>Graduação em Web Designer</h2> -->
+				<a href="design/">
+					<img src="/static/img/design.jpg" width="300" height="200" alt="Graduação em Comunicação visual">
+				</a>
+			</div>
+
+			<div class="curso">
+				<!-- <h2>Graduação para se tornar Youtuber e Blogger</h2> -->
+				<a href="/blogger">
+					<img src="/static/img/blogger.jpg" width="300" height="200" alt="Graduação Youtuber e Blogger">
+				</a>
+
+				<!-- <h2>Graduação em Publicidade e Propaganda</h2> -->
+				<a href="publicidade/">
+					<img src="/static/img/publicidade-propaganda.jpg" width="300" height="200" alt="Graduação em Publicidade e Propaganda">
+				</a>
+			</div>
+		</section>
+    </main>
+{% endblock %}

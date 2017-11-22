@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block titulo %}
+- Home Page  
+{% endblock titulo %}
+
+{% block main %}
+<link rel="stylesheet" type="text/css" href="../static/css/formulario.css">
+    <section>
+        <div class="titulo">
+            <h1>Trocar a senha</h1>
+        </div>
+        <div class="form">
+            <form action="novaSenha">
+                <label for="email">E-mail: </label><br/>
+                    <input type="email" required name="email" id="email"><br/>
+                    <label for="RA">RA: </label><br/>
+                    <input type="number" required name="RA" id="RA"><br/>
+                <label for="novaSenha">Nova senha: </label><br/>
+                    <input type="password" required name="novaSenha" id="novaSenha"> <br/>
+                <label for="confirmaSenha">Confirmar senha: </label><br/>
+                    <input type="password" required name="confirmaSenha" id="confirmaSenha"> <br/>
+                <div class="btn" >
+                    <input type="submit" value="Cadastrar">
+                    <input type="reset" value="Cancelar">
+                </div>
+            </form>
+        </div>
+    </section>
+
+{% endblock main %}
+
