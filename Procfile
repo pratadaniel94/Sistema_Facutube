@@ -1,0 +1,1 @@
+web: gunicorn Projeto_LMS.wsgi --log-file -
