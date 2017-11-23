@@ -28,7 +28,7 @@ SECRET_KEY = 'bm%r-boovfyb!skq98s-s_6wiws2n$-uv_)c$@vlt4@ly$bh56'
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['sistema-facutube.herokuapp.com', 'localhost:8000']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
